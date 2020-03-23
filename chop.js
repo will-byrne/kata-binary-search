@@ -18,8 +18,8 @@ console.assert(chop(5, [3]) === -1, "single value (missing)");
 console.assert(chop(1, [1]) === 0, "single value (present)");
 console.assert(chop(1, [1, 3, 5]) === 0, "multivalue (present, first value)");
 console.assert(chop(3, [1, 3, 5]) === 1, "multivalue (present, second value)");
+console.assert(chop(5, [1, 3, 5]) === 2, "multivalue (present, third value)");
 
-//  assert_equal(1,  chop(3, [1, 3, 5]))
 //  assert_equal(2,  chop(5, [1, 3, 5]))
 //  assert_equal(-1, chop(0, [1, 3, 5]))
 //  assert_equal(-1, chop(2, [1, 3, 5]))
