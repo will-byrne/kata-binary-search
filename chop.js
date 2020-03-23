@@ -1,20 +1,24 @@
 //chop(int, array_of_int)  -> int
 
 function chop(value, collection) {
-  if (collection.length === 1 && collection[0] === value) {
-    return 0;
-  } else {
+  if (collection && collection.length === 0) {
     return -1;
   }
+  let index = -1;
+  for (let i = 0; i < collection.length; i++) {
+    if (collection[i] === value) {
+      index = i;
+    }
+  }
+  return index;
 }
 
-console.assert(chop(5, []) === -1);
-console.assert(chop(5, [3]) === -1);
-console.assert(chop(1, [1]) === 0);
+console.assert(chop(5, []) === -1, "empty array");
+console.assert(chop(5, [3]) === -1, "single value (missing)");
+console.assert(chop(1, [1]) === 0, "single value (present)");
+console.assert(chop(1, [1, 3, 5]) === 0, "multivalue (present, first value)");
+console.assert(chop(3, [1, 3, 5]) === 1, "multivalue (present, second value)");
 
-// assert_equal(0,  chop(1, [1]))
-//  #
-//  assert_equal(0,  chop(1, [1, 3, 5]))
 //  assert_equal(1,  chop(3, [1, 3, 5]))
 //  assert_equal(2,  chop(5, [1, 3, 5]))
 //  assert_equal(-1, chop(0, [1, 3, 5]))
